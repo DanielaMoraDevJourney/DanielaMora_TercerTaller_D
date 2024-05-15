@@ -9,23 +9,23 @@ using DanielaMoraTercerTaller.Models;
 
 namespace DanielaMoraTercerTaller.Controllers
 {
-    public class PromoesController : Controller
+    public class PromosController : Controller
     {
         private readonly DanielaMoraTercerTallerContext _context;
 
-        public PromoesController(DanielaMoraTercerTallerContext context)
+        public PromosController(DanielaMoraTercerTallerContext context)
         {
             _context = context;
         }
 
-        // GET: Promoes
+        // GET: Promos
         public async Task<IActionResult> Index()
         {
             var danielaMoraTercerTallerContext = _context.Promo.Include(p => p.Burger);
             return View(await danielaMoraTercerTallerContext.ToListAsync());
         }
 
-        // GET: Promoes/Details/5
+        // GET: Promos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -44,14 +44,14 @@ namespace DanielaMoraTercerTaller.Controllers
             return View(promo);
         }
 
-        // GET: Promoes/Create
+        // GET: Promos/Create
         public IActionResult Create()
         {
             ViewData["BurgerID"] = new SelectList(_context.Burger, "BurgerID", "Name");
             return View();
         }
 
-        // POST: Promoes/Create
+        // POST: Promos/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -68,7 +68,7 @@ namespace DanielaMoraTercerTaller.Controllers
             return View(promo);
         }
 
-        // GET: Promoes/Edit/5
+        // GET: Promos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -85,7 +85,7 @@ namespace DanielaMoraTercerTaller.Controllers
             return View(promo);
         }
 
-        // POST: Promoes/Edit/5
+        // POST: Promos/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -121,7 +121,7 @@ namespace DanielaMoraTercerTaller.Controllers
             return View(promo);
         }
 
-        // GET: Promoes/Delete/5
+        // GET: Promos/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -140,7 +140,7 @@ namespace DanielaMoraTercerTaller.Controllers
             return View(promo);
         }
 
-        // POST: Promoes/Delete/5
+        // POST: Promos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
